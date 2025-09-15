@@ -1,12 +1,12 @@
 steps:
-  - label: ":docker: Test Docker Plugin from Subdirectory"
-    command: "echo 'Testing Docker plugin from subdirectory'"
+  - label: ":docker: Test Docker Plugin - Git Sparse Checkout"
+    command: "echo 'Testing Docker plugin with git sparse checkout'"
     plugins:
-      - Mykematt/Ola-plugins/docker:
+      - git://github.com/Mykematt/Ola-plugins.git/docker:
           image: "alpine:latest"
 
-  - label: ":docker: Test Docker Compose Plugin from Subdirectory"
-    command: "echo 'Testing Docker Compose plugin from subdirectory'"
+  - label: ":docker: Test Docker Plugin - Alternative Format"
+    command: "echo 'Testing Docker plugin alternative format'"
     plugins:
-      - Mykematt/Ola-plugins/docker-compose:
-          run: app
+      - github.com/Mykematt/Ola-plugins//docker:
+          image: "alpine:latest"
