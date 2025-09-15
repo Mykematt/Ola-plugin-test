@@ -1,0 +1,12 @@
+steps:
+  - label: ":docker: Test Docker Plugin"
+    command: "echo 'Testing Docker plugin'"
+    plugins:
+      - github.com/Mykematt/Ola-plugins.git#docker:
+          image: "alpine:latest"
+
+  - label: ":docker: Test Docker Compose Plugin"
+    command: "echo 'Testing Docker Compose plugin'"
+    plugins:
+      - github.com/Mykematt/Ola-plugins.git#docker-compose:
+          run: app
