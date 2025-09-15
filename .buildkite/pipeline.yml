@@ -1,12 +1,18 @@
 steps:
-  - label: ":docker: Test Docker Plugin - Double Slash Format"
-    command: "echo 'Testing Docker plugin with double slash'"
+  - label: ":docker: Test Docker Plugin - Run Commands"
+    command: 
+      - "echo 'Running inside Docker container'"
+      - "whoami"
+      - "pwd"
+      - "ls -la"
     plugins:
       - github.com/Mykematt/Ola-plugins//docker:
           image: "alpine:latest"
+          workdir: "/workspace"
 
-  - label: ":docker: Test Docker Compose Plugin - Double Slash Format"
-    command: "echo 'Testing Docker Compose plugin with double slash'"
+  - label: ":docker: Test Docker Compose Plugin - Real Service"
+    command: "echo 'Testing with actual Docker Compose service'"
     plugins:
       - github.com/Mykematt/Ola-plugins//docker-compose:
           run: app
+          command: ["echo", "Hello from Docker Compose service"]
