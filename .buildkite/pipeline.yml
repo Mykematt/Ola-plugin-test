@@ -11,8 +11,7 @@ steps:
           workdir: "/workspace"
 
   - label: ":docker: Test Docker Compose Plugin - Real Service"
-    command: "echo 'This should be overridden by Docker Compose plugin'"
+    command: "echo 'Step command - should not see this if plugin works'"
     plugins:
       - github.com/Mykematt/Ola-plugins//docker-compose:
           run: app
-          command: ["echo", "Hello from Docker Compose service"]
